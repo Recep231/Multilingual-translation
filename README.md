@@ -3,49 +3,31 @@
 C# Windows Forms ile geliştirilmiş, akıllı fallback mekanizmasına sahip çoklu dil çeviri uygulaması.
 
 ✨ Özellikler
-🎯 Ana Özellikler
-
-3 farklı çeviri modu:
-
-🔄 Otomatik Mod – İnternet varsa API, yoksa yerel veritabanı kullanılır
-
-🌐 API Modu – Çevrimiçi çeviri servisi
-
-💾 Yerel Mod – İnternet gerektirmez
-
-Desteklenen 5 dil:
-
-🇹🇷 Türkçe
-
-🇬🇧 İngilizce
-
-🇩🇪 Almanca
-
-🇫🇷 Fransızca
-
-🇪🇸 İspanyolca
-
-🧠 Akıllı Sistem
+🎯 Çeviri Modları
+Mod	Açıklama
+🔄 Otomatik Mod	İnternet varsa API, yoksa yerel veritabanı kullanılır
+🌐 API Modu	Çevrimiçi çeviri servisi
+💾 Yerel Mod	İnternet gerektirmez
+🌐 Desteklenen Diller
+Bayrak	Dil
+🇹🇷	Türkçe
+🇬🇧	İngilizce
+🇩🇪	Almanca
+🇫🇷	Fransızca
+🇪🇸	İspanyolca
+🧠 Akıllı Sistem Özellikleri
 
 200+ kelime & cümle içeren yerel veritabanı
 
 Tam eşleşme yoksa kelime kelime çeviri
 
-API cache sistemi – tekrar eden çevirileri hatırlar
+API Cache – tekrar eden çevirileri kaydeder
 
-İnternet kontrolü – online/offline algılama
+Online / Offline algılama
 
 Karakter sayacı
 
-🎨 Kullanıcı Arayüzü
-
-Modern dark theme
-
-Temiz ve sade tasarım
-
-Durum göstergeleri ve renk kodlamaları
-
-Kullanıcı dostu hata mesajları
+Modern ve sade arayüz
 
 🚀 Kurulum
 Gereksinimler
@@ -56,29 +38,25 @@ Visual Studio 2019 / 2022
 
 Windows 10 / 11
 
-Yükleme
+Kurulum Adımları
 git clone https://github.com/Recep231/Multilingual-translation.git
 
 
-Ya da ZIP indirip çıkartın.
+Projeyi Visual Studio ile açmak için:
 
-Visual Studio ile açmak için:
-
-SmartTranslationApp.sln dosyasına tıklayın
+SmartTranslationApp.sln dosyasını çift tıklayın
 veya
 
-.csproj dosyasını açın
+.csproj ile açın
 
-Çalıştırmak için:
-F5 → Start Debugging
+Çalıştırmak için F5 basın.
 
 📖 Kullanım Kılavuzu
 1️⃣ Başlangıç
 
 Uygulamayı aç
 
-Çeviri modunu seç:
-🔄 Otomatik | 🌐 API | 💾 Yerel
+Çeviri modunu seç (🔄 / 🌐 / 💾)
 
 2️⃣ Çeviri Yapma
 
@@ -88,37 +66,34 @@ Hedef dili seç
 
 Metni yaz veya yapıştır
 
-🚀 AKILLI ÇEVİR butonuna bas
+🚀 Akıllı Çevir butonuna tıklayın
 
-3️⃣ Ek Özellikler
-
-🔄 DEĞİŞTİR → kaynak ve hedef dili yer değiştirir
-
-🗑️ TEMİZLE → tüm alanları temizler
-
-📋 KOPYALA → sonucu panoya kopyalar
-
+3️⃣ Ek Araçlar
+Buton	Açıklama
+🔄 Değiştir	Kaynak ve hedef dili değiştirir
+🗑️ Temizle	Tüm alanları siler
+📋 Kopyala	Çeviriyi panoya kopyalar
 🔧 Teknik Detaylar
 📁 Proje Yapısı
 SmartTranslationApp/
-├── Form1.cs                 # Ana form ve iş mantığı
-├── Program.cs               # Giriş noktası
+├── Form1.cs                 # Ana form ve UI
+├── Program.cs               # Uygulama giriş noktası
 ├── Translation Database     # Yerel sözlük
 └── API Integration          # Çevrimiçi API bağlantıları
 
 🏗️ Teknoloji Stack
 
-Platform: Windows Forms (.NET Framework)
+Windows Forms
 
-Dil: C#
+C# (.NET Framework)
 
-API: REST
+REST API
 
-Veri Yapısı: Dictionary
+Dictionary tabanlı veri yapısı
 
-Cache: In-memory
+In-memory cache
 
-Fallback: Çok katmanlı sistem (local → API → kelime kelime)
+Çok katmanlı fallback sistemi
 
 📊 Çeviri Akış Mantığı
 
@@ -128,78 +103,61 @@ Yoksa kelime kelime çevir
 
 İnternet varsa API’ye bağlan
 
-API başarısız → yerel veritabanına dön
+API başarısızsa → yerel veritabanı
 
-🧪 Örnek Test Senaryoları
-🔌 Senaryo 1: İnternet VAR
-
-Girdi: hello how are you
-Çıktı: merhaba nasılsın
-Durum: ✅ API
-
-📴 Senaryo 2: İnternet YOK
-
-Girdi: where is the hotel
-Çıktı: otel nerede
-Durum: 💾 Yerel veritabanı
-
-⚠️ Senaryo 3: Karmaşık Cümle
-
-Girdi: i need to find a pharmacy quickly
-Çıktı: kelime kelime çeviri
-Durum: ⚠️ Word-by-word
-
+🧪 Test Senaryoları
+Senaryo	Girdi	Beklenen Sonuç	Durum
+İnternet Var	hello how are you	merhaba nasılsın	🌐 API
+İnternet Yok	where is the hotel	otel nerede	💾 Yerel
+Karmaşık Cümle	i need to find a pharmacy quickly	kelime kelime çeviri	⚠️ Word-by-word
 🐛 Bilinen Sınırlamalar
 
-Maks 5000 karakter çevirilebilir
+En fazla 5000 karakter çevirilebilir
 
-API yanıt süresi değişebilir
+API hızına göre gecikme olabilir
 
 Nadir kelimelerde hata oluşabilir
 
-Şu anda 5 dil destekleniyor
+Şu an 5 dil destekleniyor
 
 🔮 Gelecek Güncellemeler
 
-Daha fazla dil
+Yeni diller
 
 Sesli çeviri
 
-OCR ile görselden çeviri
+OCR (resimden metin çeviri)
 
-Mobil versiyon
+Mobil sürüm
 
-Cloud Sync
+Cloud senkronizasyonu
 
 👨‍💻 Geliştirici
 
 Recep Yıldırım
-GitHub: @Recep231
-
-Proje: Multilingual Translation Application
+GitHub: https://github.com/Recep231
 
 📝 Lisans
 
-Bu proje MIT lisansı altındadır.
-Detaylar için LICENSE dosyasına bakınız.
+MIT Lisansı – LICENSE dosyasına bakabilirsiniz.
 
 🤝 Katkıda Bulunma
 
 Fork'la
 
-Yeni branch aç
+Branch oluştur
 
 Commit at
 
 Push et
 
-Pull Request aç
+Pull request aç
 
 ⭐ Destek
 
 Projeyi beğendiysen yıldız vermeyi unutma! ⭐
 
-📁 Dosyaya ekleme talimatı
+📁 GitHub’a ekleme komutları
 git add README.md
-git commit -m "docs: Add professional README"
+git commit -m "docs: Add modern README design"
 git push origin main
